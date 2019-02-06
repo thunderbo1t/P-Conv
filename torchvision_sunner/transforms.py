@@ -217,7 +217,7 @@ def tensor2Numpy(tensor, transform = None):
     tensor = tensor.cpu()
     if transform:
         tensor = transform(tensor)
-        if int(torch.__version__.split('.')[1]) >= 4:
+        if int(torch.__version__.split('.')[1]) >= 4 or int(torch.__version__.split(".")[0]>0):
             return tensor.detach().numpy()
         else:
             return tensor.numpy()
